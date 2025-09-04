@@ -8,3 +8,13 @@
 ### Tâches restantes
 
 Il ne reste aucune tâche à faire pour cette première feuille
+
+## TP1
+### Tâches réalisées
+
+* Création de la base de données
+* Création de la table Rayon
+* Création de l'association contenir
+* Ajout date de fabrication dans la table produit
+* Création de la Table Statut
+* Ajout d'un Statut dans produit
