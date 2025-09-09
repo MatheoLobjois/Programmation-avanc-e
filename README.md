@@ -22,10 +22,18 @@ Il ne reste aucune tâche à faire pour cette première feuille
 * Lancement des commandes dans le shell pour avoir l'ensemble des objets, le premier objet, l'objet commençant par "ip", ...
 * Ajout de la méthode ListProduits
 * Création et Routage de la nouvelle view ListProduits
+* Création et Routage de la nouvelle view ListCategorie
+* Création et Routage de la nouvelle view ListStatut
 
 ### Tâches restantes
 
-Il ne reste aucune tâche à faire pour cette première feuille
+Il ne reste aucune tâche à faire pour cette feuille
 
 ## TD2
 ### Tâches réalisées
+
+* Création du super user
+* Connexion du super user
+* Ajout de l'application dans le terminal admin
+* Ajout d'un produit directement avec le terminal admin
+* Modification d'un produit
