@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
+from .models import Produit
 
 def home(request ,param = "Django"):
     return HttpResponse(f"<h1>Hello {param} </h1>")
@@ -11,3 +12,11 @@ def about_us(request):
 
 def contact_us(request):
     return HttpResponse("<h1> ? </h1>")
+
+def ListProduits(request):
+    prdts = Produit.objects.all()
+    liste = "<ul>"
+    for produit in prdts:
+        liste += f"""<li> {produit.intituleProd} </li>"""
+    liste += "</ul>"
+    return HttpResponse(liste)
