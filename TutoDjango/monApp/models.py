@@ -10,13 +10,12 @@ class Categorie(models.Model):
         return self.nomCat
 
 class Statut(models.Model):
-    idStatus = models.AutoField(primary_key=True)
-    libelleStatus = models.CharField(max_length=100)
-          
-    def __str__(self):
-        return self.libelleStatus
-    
+    idStatut = models.AutoField(primary_key=True)
+    libelle = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.libelle
+    
 class Produit(models.Model):
     refProd = models.AutoField(primary_key=True)
     intituleProd = models.CharField(max_length=200)
@@ -33,18 +32,25 @@ class Produit(models.Model):
 class Rayon(models.Model):
     idRayon = models.AutoField(primary_key=True)
     nomRayon = models.CharField(max_length=100)
-
+    produits = models.ManyToManyField(
+        'Produit',
+        through='Contenir',
+        related_name='rayon'
+    )
     def __str__(self):
         return self.nomRayon
-    
+
 class Contenir(models.Model):
-    produit = models.ForeignKey(Produit, on_delete=models.CASCADE, related_name="contenir_produit")
-    rayon = models.ForeignKey(Rayon, on_delete=models.CASCADE, related_name="contenir_rayon")
-    Qte = models.PositiveIntegerField()
+    produits = models.ForeignKey(Produit, on_delete=models.CASCADE, related_name="produits",null=False, blank=True)
+    rayons = models.ForeignKey(Rayon, on_delete=models.CASCADE, related_name="rayons",null=False, blank=True)
+    quantite = models.IntegerField()
 
     class Meta:
-        unique_together = ('produit', 'rayon')  # Un produit dans un rayon spécifique est unique
+        unique_together = ('produits','rayons')
 
     def __str__(self):
-        return f"{self.produit} dans {self.rayon} (Qte: {self.Qte})"
+        return f"Le rayon {self.rayons} contient ces produits {self.produits}"
+
+
+
     

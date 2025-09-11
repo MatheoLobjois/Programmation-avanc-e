@@ -37,3 +37,12 @@ Il ne reste aucune tâche à faire pour cette feuille
 * Ajout de l'application dans le terminal admin
 * Ajout d'un produit directement avec le terminal admin
 * Modification d'un produit
+* Ajout de rayon
+* Ajout de contenir
+* Création produit admin
+* Création catégorie admin
+* Création produit filter
+* Hiérarchiser et ordonner par rapport à la date
+* Ajout des actions afin de changer le status du produit
+* Ajout colonne personnalisée
+* Ajout de django debug toolbar
