@@ -46,3 +46,32 @@ Il ne reste aucune tâche à faire pour cette feuille
 * Ajout des actions afin de changer le status du produit
 * Ajout colonne personnalisée
 * Ajout de django debug toolbar
+
+### Tâches restantes
+
+Il ne reste aucune tâche à faire pour cette feuille
+
+## TP2
+### Tâches réalisées
+
+* Utilisation de la request et non plus d'un paramètres
+* Création du template html
+* Modification de la méthode ListProduits pour renvoyer le premier produit
+* Modification du template pour afficher le premier produit
+* Modification de la méthode ListProduits pour renvoyer les produits
+* Modification du template pour afficher les produits
+* Modification du template pour afficher les produits dans un p avec une boucle for
+* Modification du template pour afficher les produits dans un ul/li avec une boucle for
+* Création gabarit pour la liste des catégories
+* Création gabarit pour la liste des statuts
+* Création gabarit pour la liste des rayons
+* Création gabarit pour la page about us
+* Création gabarit pour la page contact us
+* Création gabarit de base 
+* Modification gabarit pour la page listeProduits pour qu'il hérite du gabarit de base
+* Modificaion de tous les gabarits pour qu'ils utilisent le gabarit de base
+* Ajout du style 
+
+### Tâches restantes
+
+Il ne reste aucune tâche à faire pour cette feuille

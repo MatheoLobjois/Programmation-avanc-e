@@ -1,0 +1,13 @@
+{% extends 'monApp/base.html' %}
+{% block contenu %}
+        <p>
+            J'ai
+            {{ rayons | length }}
+            rayons.
+        </p>
+        <ul>
+            {% for rayon in rayons %}
+            <li>{{ rayon.nomRayon }}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}
