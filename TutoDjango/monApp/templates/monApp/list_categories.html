@@ -5,12 +5,14 @@
 {% block contenu %}
     <table class="table">
     <thead>
+        <th>Id Categorie</th>
         <th>Nom Categorie</th>
     </thead>
     <tbody>
-    {% for cat in cats %}
+    {% for categorie in categories %}
         <tr>
-        <td>{{ cat.nomCat }} </td>
+        <td><a href="{% url 'dtl_categorie' categorie.idCat %}">{{ categorie.idCat }}</a></td>
+        <td>{{ categorie.nomCat }} </td>
         </tr>
     {% endfor %}
     </tbody>

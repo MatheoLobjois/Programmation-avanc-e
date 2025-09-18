@@ -76,3 +76,14 @@ Il ne reste aucune tâche à faire pour cette feuille
 ### Tâches restantes
 
 Il ne reste aucune tâche à faire pour cette feuille
+
+## TD3
+### Tâches réalisées
+
+* Ajout de HomeView
+* Ajout de AboutView
+* Ajout de ContactView
+* Ajout à HomeView du paramètre
+* Ajout du ListViewProduit
+* Ajout du querySet au ListViewProduit
+* Création de tous les ListView et DetailListView

@@ -5,11 +5,13 @@
 {% block contenu %}
     <table class="table">
     <thead>
+        <th>Id Rayon</th>
         <th>Nom Rayon</th>
     </thead>
     <tbody>
     {% for rayon in rayons %}
         <tr>
+        <td><a href="{% url 'dtl_rayon' rayon.idRayon %}">{{ rayon.idRayon }}</a></td>
         <td>{{ rayon.nomRayon }} </td>
         </tr>
     {% endfor %}

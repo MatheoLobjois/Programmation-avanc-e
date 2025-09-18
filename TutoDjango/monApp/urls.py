@@ -1,13 +1,18 @@
 from django.urls import path
 from . import views
+from django.views.generic import *
 
 urlpatterns = [
- path("home/<param>", views.home, name="home"),
- path("home/", views.home, name="home"),
- path("aboutUs/", views.about_us, name="about_us"),
- path("contactUs/", views.contact_us, name="contact_us"),
- path("listeProduits/",views.ListProduits, name="liste_produit"),
- path("listeCategorie/",views.ListCategorie, name="liste_categorie"),
- path("listeStatut/",views.ListStatut, name="liste_statut"),
- path("listeRayon/",views.ListRayon, name="liste_rayon"),
+ path("home/", views.HomeView.as_view()),
+ path("home/<param>", views.HomeView.as_view()),
+ path("aboutUs/", views.AboutView.as_view()),
+ path("contactUs/", views.ContactView.as_view()),
+ path("produits/",views.ProduitListView.as_view(),name="lst_prdts"),
+ path("produit/<pk>/" ,views.ProduitDetailView.as_view(), name="dtl_prdt"),
+ path("rayons/",views.RayonListView.as_view(),name="lst_rayons"),
+ path("rayon/<pk>/" ,views.RayonDetailView.as_view(), name="dtl_rayon"),
+ path("categories/",views.CategorieListView.as_view(),name="lst_categories"),
+ path("categorie/<pk>/" ,views.CategorieDetailView.as_view(), name="dtl_categorie"),
+ path("statuts/",views.StatutListView.as_view(),name="lst_statuts"),
+ path("statut/<pk>/" ,views.StatutDetailView.as_view(), name="dtl_statut"),
 ]
