@@ -71,6 +71,7 @@ Il ne reste aucune tâche à faire pour cette feuille
 * Modification gabarit pour la page listeProduits pour qu'il hérite du gabarit de base
 * Modificaion de tous les gabarits pour qu'ils utilisent le gabarit de base
 * Ajout du style 
+* Ajout de bootstrap5 à toutes les pages
 
 ### Tâches restantes
 

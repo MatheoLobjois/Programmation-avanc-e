@@ -1,13 +1,18 @@
 {% extends 'monApp/base.html' %}
+{% block menu %}
+<h1>Liste des status</h1>
+{% endblock %}
 {% block contenu %}
-        <p>
-            J'ai
-            {{ stats | length }}
-            status.
-        </p>
-        <ul>
-            {% for stat in stats %}
-            <li>{{ stat.libelle }}</li>
-            {% endfor %}
-        </ul>
+    <table class="table">
+    <thead>
+        <th>Status</th>
+    </thead>
+    <tbody>
+    {% for stat in stats %}
+        <tr>
+        <td>{{ stat.libelle }} </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}

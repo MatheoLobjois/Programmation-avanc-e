@@ -1,13 +1,18 @@
 {% extends 'monApp/base.html' %}
+{% block menu %}
+<h1>Liste des catégories</h1>
+{% endblock %}
 {% block contenu %}
-        <p>
-            J'ai
-            {{ cats | length }}
-            catégories.
-        </p>
-        <ul>
-            {% for cat in cats %}
-            <li>{{ cat.nomCat }}</li>
-            {% endfor %}
-        </ul>
+    <table class="table">
+    <thead>
+        <th>Nom Categorie</th>
+    </thead>
+    <tbody>
+    {% for cat in cats %}
+        <tr>
+        <td>{{ cat.nomCat }} </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}

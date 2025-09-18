@@ -1,13 +1,18 @@
 {% extends 'monApp/base.html' %}
+{% block menu %}
+<h1>Liste des rayons</h1>
+{% endblock %}
 {% block contenu %}
-        <p>
-            J'ai
-            {{ rayons | length }}
-            rayons.
-        </p>
-        <ul>
-            {% for rayon in rayons %}
-            <li>{{ rayon.nomRayon }}</li>
-            {% endfor %}
-        </ul>
+    <table class="table">
+    <thead>
+        <th>Nom Rayon</th>
+    </thead>
+    <tbody>
+    {% for rayon in rayons %}
+        <tr>
+        <td>{{ rayon.nomRayon }} </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}
