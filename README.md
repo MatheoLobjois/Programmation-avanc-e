@@ -87,3 +87,6 @@ Il ne reste aucune tâche à faire pour cette feuille
 * Ajout du ListViewProduit
 * Ajout du querySet au ListViewProduit
 * Création de tous les ListView et DetailListView
+* Création des formulaires
+* Envoi de l'email fictif à django
+* Création de la redirection vers la page Email Sent
