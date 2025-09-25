@@ -6,4 +6,6 @@
     <h2>{{ statut.libelle }}</h2>
     
     <a href="{% url 'lst_statuts' %}">Retour à la liste des status</a>
+    <a href="{% url 'statut-chng' statut.idStatut %}">modifier</a>
+    <a href="{% url 'dlt-statut' statut.idStatut %}">supprimer</a>
 {% endblock %}

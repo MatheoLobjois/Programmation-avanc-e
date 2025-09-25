@@ -5,4 +5,6 @@
 {% block contenu %}
     <h2>{{ categorie.nomCat }}</h2>
     <a href="{% url 'lst_categories' %}">Retour à la liste des catégories</a>
+    <a href="{% url 'categorie-chng' categorie.idCat %}">modifier</a>
+    <a href="{% url 'dlt-categorie' categorie.idCat %}">supprimer</a>
 {% endblock %}

@@ -5,4 +5,6 @@
 {% block contenu %}
     <h2>{{ rayon.nomRayon }}</h2>
     <a href="{% url 'lst_rayons' %}">Retour à la liste des rayons</a>
+    <a href="{% url 'rayon-chng' rayon.idRayon %}">modifier</a>
+    <a href="{% url 'dlt-rayon' rayon.idRayon %}">supprimer</a>
 {% endblock %}

@@ -7,9 +7,11 @@
     <ul>
         <li>Référence produit : {{prdt.refProd }} </li>
         <li>Prix unitaire HT : {{ prdt.prixUnitaireProd }} </li>
-        <li>Date de fabrication : {{ prdt.dateFabProd }} </li>
+        <li>Date de fabrication : {{ prdt.dateFabrication }} </li>
         <li>Catégorie : {{ prdt.categorie }} </li>
         <li>Statut : {{ prdt.status }}</li>
     </ul>
     <a href="{% url 'lst_prdts' %}">Retour à la liste des produits</a>
+    <a href="{% url 'prdt-chng' prdt.refProd %}">modifier</a>
+    <a href="{% url 'dlt-prdt' prdt.refProd %}">supprimer</a>
 {% endblock %}

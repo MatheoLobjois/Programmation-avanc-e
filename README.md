@@ -90,3 +90,21 @@ Il ne reste aucune tâche à faire pour cette feuille
 * Création des formulaires
 * Envoi de l'email fictif à django
 * Création de la redirection vers la page Email Sent
+
+### Tâches restantes
+
+Il ne reste aucune tâche à faire pour cette feuille
+
+## TP3
+### Tâches réalisées
+
+* Création du formulaire de création du produit
+* Correction du formulaire produit en excluant statut et categorie
+* Création de la vue générique du produit
+* Ajout de la modification d'un produit
+* Ajout de la suppression d'un poduit
+* Création des mêmes pages pour catégorie, statut et rayons
+
+### Tâches restantes
+
+Il ne reste aucune tâche à faire pour cette feuille
