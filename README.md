@@ -108,3 +108,14 @@ Il ne reste aucune tâche à faire pour cette feuille
 ### Tâches restantes
 
 Il ne reste aucune tâche à faire pour cette feuille
+
+## TD4
+### Tâches réalisées
+
+* Ajout des queryset dans les différentes vues afin d'afficher plus d'information sur les pages concernant les rayons,statut,catégorie
+* Ajout des select_related et prefetch_related afin de minimiser le nombre de requêtes
+
+### Tâches restantes
+
+* Authentification
+* Barre de recherche

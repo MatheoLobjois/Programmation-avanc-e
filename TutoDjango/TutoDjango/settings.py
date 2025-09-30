@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+ivc0%0v^$i0f5gnextf^#95oaw0kv92+$ews53r*f&j96=ucw
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+LOGIN_URL = '/monApp/login/' 
 ALLOWED_HOSTS = []
 
 

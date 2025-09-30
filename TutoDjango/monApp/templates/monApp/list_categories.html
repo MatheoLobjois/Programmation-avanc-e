@@ -4,18 +4,25 @@
 {% endblock %}
 {% block contenu %}
     <table class="table">
-    <thead>
-        <th>Id Categorie</th>
-        <th>Nom Categorie</th>
-    </thead>
-    <tbody>
-    {% for categorie in categories %}
-        <tr>
-        <td><a href="{% url 'dtl_categorie' categorie.idCat %}">{{ categorie.idCat }}</a></td>
-        <td>{{ categorie.nomCat }} </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-    </table>
+        <thead>
+            <th>Id</th>
+            <th>Nom catégorie</th>
+            <th>Nombre de Produits</th>
+        </thead>
+        <tbody>
+            {% for ctgr in ctgrs %}
+            <tr>
+                <td><a href="{% url 'dtl_categorie' ctgr.idCat %}">{{ ctgr.idCat }}</a></td>
+                <td>{{ ctgr.nomCat }} </td>
+                <td>{{ ctgr.nb_produits }} </td>
+                <td>
+                    <a href="{% url 'dtl_categorie' ctgr.idCat %}" class="btn btn-primary mt-2">Détails</a>
+                    <a href="{% url 'categorie-chng' ctgr.idCat %}" class="btn btn-warning mt-2">Modifier</a>
+                    <a href="{% url 'dlt-categorie' ctgr.idCat %}" class="btn btn-danger mt-2">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> 
     <a href="{% url 'crt-categorie' %}">Créer d'une nouvelle categorie</a>
 {% endblock %}

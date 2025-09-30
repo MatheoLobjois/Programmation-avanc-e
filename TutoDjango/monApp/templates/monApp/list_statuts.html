@@ -7,12 +7,19 @@
     <thead>
         <th>Id</th>
         <th>Status</th>
+        <th>Nombre de Produits</th>
     </thead>
     <tbody>
     {% for statut in statuts %}
         <tr>
         <td><a href="{% url 'dtl_statut' statut.idStatut %}">{{ statut.idStatut }}</a></td>
         <td>{{ statut.libelle }} </td>
+        <td>{{ statut.nb_produits }} </td>
+        <td>
+            <a href="{% url 'dtl_statut' statut.idStatut %}" class="btn btn-primary mt-2">Détails</a>
+            <a href="{% url 'statut-chng' statut.idStatut %}" class="btn btn-warning mt-2">Modifier</a>
+            <a href="{% url 'dlt-statut' statut.idStatut %}" class="btn btn-danger mt-2">Supprimer</a>
+        </td>
         </tr>
     {% endfor %}
     </tbody>

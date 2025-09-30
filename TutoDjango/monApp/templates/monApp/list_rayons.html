@@ -4,18 +4,25 @@
 {% endblock %}
 {% block contenu %}
     <table class="table">
-    <thead>
-        <th>Id Rayon</th>
-        <th>Nom Rayon</th>
-    </thead>
-    <tbody>
-    {% for rayon in rayons %}
-        <tr>
-        <td><a href="{% url 'dtl_rayon' rayon.idRayon %}">{{ rayon.idRayon }}</a></td>
-        <td>{{ rayon.nomRayon }} </td>
-        </tr>
-    {% endfor %}
-    </tbody>
+        <thead>
+            <th>Id</th>
+            <th>Nom rayon</th>
+            <th>Valeur marchande du rayon</th>
+        </thead>
+        <tbody>
+            {% for data in rayons_dt %}
+            <tr>
+                <td><a href="{% url 'dtl_rayon' data.rayon.idRayon %}">{{ data.rayon.idRayon }}</a></td>
+                <td>{{ data.rayon.nomRayon }} </td>
+                <td>{{ data.total_stock }} €</td>
+                <td>
+                    <a href="{% url 'dtl_rayon' data.rayon.idRayon %}" class="btn btn-primary mt-2">Détails</a>
+                    <a href="{% url 'rayon-chng' data.rayon.idRayon %}" class="btn btn-warning mt-2">Modifier</a>
+                    <a href="{% url 'dlt-rayon' data.rayon.idRayon %}" class="btn btn-danger mt-2">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
     <a href="{% url 'crt-rayon' %}">Créer un nouveau rayon</a>
 {% endblock %}
