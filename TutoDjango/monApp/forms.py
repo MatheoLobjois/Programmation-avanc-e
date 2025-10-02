@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Produit, Categorie,Statut,Rayon
+from .models import *
 
 class ContactUsForm(forms.Form):
     name = forms.CharField(required=False)
@@ -27,3 +27,8 @@ class StatutForm(forms.ModelForm):
     class Meta:
         model = Statut
         fields = '__all__'
+
+class ContenirForm(forms.ModelForm):
+    class Meta:
+        model = Contenir
+        exclude = ('rayons',)

@@ -114,8 +114,10 @@ Il ne reste aucune tâche à faire pour cette feuille
 
 * Ajout des queryset dans les différentes vues afin d'afficher plus d'information sur les pages concernant les rayons,statut,catégorie
 * Ajout des select_related et prefetch_related afin de minimiser le nombre de requêtes
+* Création, suppression et modification nécessitant d'être connecté  et redirige vers la page login si non connecté
+* Ajout de la recherche pour les différentes pages produits, statuts, rayons, catégories
+* Ajout d'un produit dans un rayon 
 
 ### Tâches restantes
 
-* Authentification
-* Barre de recherche
+Il ne reste aucune tâche à faire pour cette feuille

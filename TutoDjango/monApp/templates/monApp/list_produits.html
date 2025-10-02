@@ -3,6 +3,13 @@
 <h1>{{ titremenu }}</h1>
 {% endblock %}
 {% block contenu %}
+    <!-- Barre de recherche -->
+    <p class="lead mb-3 ml-0">Rechercher un élément...</p>
+    <form method="GET" action="">
+        <input class="form-control" type="text" name="search" placeholder="Tapez ici votre recherche"
+        value="{{ request.GET.search }}">
+        <button type="submit" class="btn btn-success mt-2">Rechercher</button>
+    </form>
     <table class="table">
     <thead>
         <th>Id</th>
@@ -25,16 +32,5 @@
     {% endfor %}
     </tbody>
     </table>
-    <p>
-        J'ai
-        {% if prdts|length < 5 %}
-        peu de
-        {% elif prdts|length < 10 %}
-        quelques
-        {% else %}
-        beaucoup de
-        {% endif %}
-        produits préférés.
-    </p>
     <a href="{% url 'crt-prdt' %}">Créer un nouveau produit</a>
 {% endblock %}

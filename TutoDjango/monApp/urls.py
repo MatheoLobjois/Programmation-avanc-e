@@ -31,4 +31,5 @@ urlpatterns = [
  path("statut/",views.StatutCreateView.as_view(), name="crt-statut"),
  path("statut/<pk>/update/",views.StatutUpdateView.as_view(), name="statut-chng"),
  path("statut/<pk>/delete/",views.StatutDeleteView.as_view(), name="dlt-statut"),
+ path('rayon/<pk>/cntnr', views.ContenirCreateView.as_view(), name='cntnr-crt'),
 ]

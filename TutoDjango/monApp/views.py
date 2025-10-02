@@ -60,8 +60,16 @@ class ProduitListView(ListView):
     template_name = "monApp/list_produits.html"
     context_object_name = "prdts"
     def get_queryset(self):
-        # Charge les catégories et les statuts en même temps
+ # Surcouche pour filtrer les résultats en fonction de la recherche
+ # Récupérer le terme de recherche depuis la requête GET
+        query = self.request.GET.get('search')
+        if query:
+            return Produit.objects.filter(intituleProd__icontains=query).select_related('categorie').select_related('statut')
+
+        # Si aucun terme de recherche, retourner tous les produits
+        # Charge les catégories en même temps
         return Produit.objects.select_related('categorie').select_related('statut')
+    
     def get_context_data(self, **kwargs):
         context = super(ProduitListView, self).get_context_data(**kwargs)
         context['titremenu'] = "Liste de mes produits"
@@ -82,6 +90,9 @@ class RayonListView(ListView):
     context_object_name = "rayons"
 
     def get_queryset(self ) :
+        query = self.request.GET.get('search')
+        if query:
+            return Rayon.objects.filter(nomRayon__icontains=query).prefetch_related(Prefetch("rayons", queryset=Contenir.objects.select_related("produits")))
         # Précharge tous les "contenir" de chaque rayon,
         # et en même temps le produit de chaque contenir
         return Rayon.objects.prefetch_related(
@@ -130,6 +141,9 @@ class CategorieListView(ListView):
     context_object_name = "ctgrs"
 
     def get_queryset(self):
+        query = self.request.GET.get('search')
+        if query:
+            return Categorie.objects.filter(nomCat__icontains=query).annotate(nb_produits=Count('produits_categorie'))
         # Annoter chaque catégorie avec le nombre de produits liés
         return Categorie.objects.annotate(nb_produits=Count('produits_categorie'))
     
@@ -159,6 +173,9 @@ class StatutListView(ListView):
     context_object_name = "statuts"
 
     def get_queryset(self ) :
+        query = self.request.GET.get('search')
+        if query:
+            return Statut.objects.filter(libelle__icontains=query).annotate(nb_produits=Count('produits_status'))
         return Statut.objects.annotate(nb_produits=Count('produits_status'))
     
     def get_context_data(self, **kwargs):
@@ -271,6 +288,24 @@ class StatutDeleteView(DeleteView):
     model = Statut
     template_name = "monApp/delete_statut.html"
     success_url = reverse_lazy('lst_statuts')
+
+@method_decorator(login_required, name='dispatch')
+class ContenirCreateView(CreateView):
+    model = Contenir
+    form_class = ContenirForm
+    template_name = "monApp/create_contenir.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['rayon'] = self.kwargs.get('pk')
+        return context
+
+    def form_valid(self, form):
+        contenir = form.save(commit=False)  # ne sauvegarde pas encore
+        contenir.rayons = Rayon.objects.get(pk=self.kwargs['pk'])  # associe le rayon
+        contenir.save()  # maintenant on sauvegarde
+        return redirect('dtl_rayon', contenir.rayons.idRayon)
+
     
 class ConnectView(LoginView):
     template_name = 'monApp/page_login.html'
