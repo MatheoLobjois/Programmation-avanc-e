@@ -1,0 +1,11 @@
+{% extends 'monApp/base.html' %}
+{% block contenu %}
+    <h1>Supprimer un produit du rayon</h1>
+    <p>Êtes-vous sûr de vouloir supprimer <strong>{{ object.produits }}</strong> du rayon <strong>{{ object.rayons }}</strong> ?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+        <a href="{% url 'dtl_rayon' object.rayons.idRayon %}" class="btn btn-secondary">Annuler</a>
+    </form>
+{% endblock %}

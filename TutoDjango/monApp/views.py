@@ -14,7 +14,7 @@ from monApp.forms import ContactUsForm
 from django.core.mail import send_mail
 from django.shortcuts import redirect
 from django.forms import BaseModelForm
-
+from django.urls import reverse_lazy
 
 class HomeView(TemplateView):
     template_name = "monApp/page_home.html"
@@ -122,14 +122,19 @@ class RayonDetailView(DetailView):
         prdts_dt = []
         total_rayon = 0
         total_nb_produit = 0
+
         for contenir in self.object.rayons.all():
             total_produit = contenir.produits.prixUnitaireProd * contenir.quantite
-            prdts_dt.append({ 'produit': contenir.produits,
-            'qte': contenir.quantite,
-            'prix_unitaire': contenir.produits.prixUnitaireProd,
-            'total_produit': total_produit} )
+            prdts_dt.append({
+                'contenir': contenir,  
+                'produit': contenir.produits,
+                'qte': contenir.quantite,
+                'prix_unitaire': contenir.produits.prixUnitaireProd,
+                'total_produit': total_produit
+            })
             total_rayon += total_produit
             total_nb_produit += contenir.quantite
+
         context['prdts_dt'] = prdts_dt
         context['total_rayon'] = total_rayon
         context['total_nb_produit'] = total_nb_produit
@@ -301,10 +306,52 @@ class ContenirCreateView(CreateView):
         return context
 
     def form_valid(self, form):
-        contenir = form.save(commit=False)  # ne sauvegarde pas encore
-        contenir.rayons = Rayon.objects.get(pk=self.kwargs['pk'])  # associe le rayon
-        contenir.save()  # maintenant on sauvegarde
+        rayon = Rayon.objects.get(pk=self.kwargs['pk'])
+        produit = form.cleaned_data['produits']
+        quantite = form.cleaned_data['quantite']
+
+        # Vérifie si le produit existe déjà dans le rayon
+        contenir_existant = Contenir.objects.filter(rayons=rayon, produits=produit).first()
+
+        if contenir_existant:
+
+            contenir_existant.quantite += quantite
+            contenir_existant.save()
+        else:
+
+            contenir = form.save(commit=False)
+            contenir.rayons = rayon
+            contenir.save()
+
+        return redirect('dtl_rayon', rayon.idRayon)
+
+@method_decorator(login_required, name='dispatch')
+class UpdateContenirView(UpdateView):
+    model = Contenir
+    form_class = ContenirForm
+    template_name = "monApp/update_contenir.html"
+    pk_url_kwarg = 'contenir_pk'
+
+    def form_valid(self, form):
+        contenir = form.save(commit=False)
+
+        if contenir.quantite <= 0:
+            contenir.delete()
+        else:
+            contenir.save()
+
         return redirect('dtl_rayon', contenir.rayons.idRayon)
+
+
+@method_decorator(login_required, name='dispatch')
+class DeleteContenirView(DeleteView):
+    model = Contenir
+    template_name = "monApp/delete_contenir.html"
+    pk_url_kwarg = 'contenir_pk'
+
+    def get_success_url(self):
+        rayon = self.object.rayons
+        return reverse_lazy('dtl_rayon', args=[rayon.idRayon])
 
     
 class ConnectView(LoginView):

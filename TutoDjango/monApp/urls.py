@@ -32,4 +32,7 @@ urlpatterns = [
  path("statut/<pk>/update/",views.StatutUpdateView.as_view(), name="statut-chng"),
  path("statut/<pk>/delete/",views.StatutDeleteView.as_view(), name="dlt-statut"),
  path('rayon/<pk>/cntnr', views.ContenirCreateView.as_view(), name='cntnr-crt'),
+ path('rayon/<rayon_pk>/cntnr/<contenir_pk>/update/', views.UpdateContenirView.as_view(), name='update_contenir'),
+ path('rayon/<rayon_pk>/cntnr/<contenir_pk>/delete/', views.DeleteContenirView.as_view(), name='delete_contenir'),
+
 ]

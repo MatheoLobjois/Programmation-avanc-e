@@ -117,6 +117,7 @@ Il ne reste aucune tâche à faire pour cette feuille
 * Création, suppression et modification nécessitant d'être connecté  et redirige vers la page login si non connecté
 * Ajout de la recherche pour les différentes pages produits, statuts, rayons, catégories
 * Ajout d'un produit dans un rayon 
+* On peut modifier la quantité d'un produit et supprimer le produit
 
 ### Tâches restantes
 

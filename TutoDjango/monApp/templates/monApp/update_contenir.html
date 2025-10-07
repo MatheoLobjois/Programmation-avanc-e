@@ -1,0 +1,10 @@
+{% extends 'monApp/base.html' %}
+{% block contenu %}
+    <h1>Modifier la quantité du produit</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Mettre à jour</button>
+        <a href="{% url 'dtl_rayon' object.rayons.idRayon %}" class="btn btn-info">Retour</a>
+    </form>
+{% endblock %}
