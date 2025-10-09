@@ -122,3 +122,17 @@ Il ne reste aucune tâche à faire pour cette feuille
 ### Tâches restantes
 
 Il ne reste aucune tâche à faire pour cette feuille
+
+## TP4
+### Tâches réalisées
+
+* Test pour le modèle catégorie
+* Test pour le formulaire categorieForm
+* Test pour les Urls concernant catégorie
+* Test pour les views concernant catégorie
+* Test pour le modèle Produit
+* Test pour le formulaire produitForm
+
+### Tâches restantes
+
+Les teste pour Rayon et Produit
