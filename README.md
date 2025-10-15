@@ -132,7 +132,13 @@ Il ne reste aucune tâche à faire pour cette feuille
 * Test pour les views concernant catégorie
 * Test pour le modèle Produit
 * Test pour le formulaire produitForm
+* Test pour les UrlS Produit
+* Test pour les views concernant produit
+* Test pour le modèle Rayon
+* Test pour le formulaire rayonForm
+* Test pour les UrlS Rayon
+* Test pour les views concernant rayon
 
 ### Tâches restantes
 
-Les teste pour Rayon et Produit
+Les tests pour Contenir
