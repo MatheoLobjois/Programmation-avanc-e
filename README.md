@@ -138,7 +138,19 @@ Il ne reste aucune tâche à faire pour cette feuille
 * Test pour le formulaire rayonForm
 * Test pour les UrlS Rayon
 * Test pour les views concernant rayon
+* Test pour le modèle Contenir
+* Test pour le formulaire contenirForm
+* Test pour les UrlS Contenir
+* Test pour les views concernant contenir
+
+---
+
+### Résultats des tests (coverage)
+
+![Coverage](./images/coverage.png)
+
+
 
 ### Tâches restantes
 
-Les tests pour Contenir
+Les tests pour les pages Home / About / Login / Register / Logout / Contact qui baissent le coverage de views.py

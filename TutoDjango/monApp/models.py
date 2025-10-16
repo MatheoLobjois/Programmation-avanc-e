@@ -41,8 +41,8 @@ class Rayon(models.Model):
         return self.nomRayon
 
 class Contenir(models.Model):
-    produits = models.ForeignKey(Produit, on_delete=models.CASCADE, related_name="produits",null=False, blank=True)
-    rayons = models.ForeignKey(Rayon, on_delete=models.CASCADE, related_name="rayons",null=False, blank=True)
+    produits = models.ForeignKey(Produit, on_delete=models.CASCADE, related_name="produits",null=False)
+    rayons = models.ForeignKey(Rayon, on_delete=models.CASCADE, related_name="rayons",null=False)
     quantite = models.IntegerField(default=1)
 
     class Meta:
